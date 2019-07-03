@@ -1,4 +1,4 @@
-# AliyunPlayer_iOS
+# AliPlayer_iOS
 
 # 功能使用
 
