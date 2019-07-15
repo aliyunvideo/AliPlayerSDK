@@ -17,6 +17,11 @@ Pod::Spec.new do |s|
 	playerSDK.vendored_frameworks = 'AliyunPlayer.framework','alivcffmpeg.framework','AlivcConan.framework','AliyunMediaDownloader.framework'
 	playerSDK.frameworks = 'MediaPlayer','CoreGraphics','QuartzCore','CoreVideo','OpenGLES','AVFoundation','CoreMedia','VideoToolbox','AudioToolbox'
   end	
+
+  s.subspec 'AliyunPlayerAndDownloader' do |playerSDK|
+	playerSDK.vendored_frameworks = 'AliyunPlayer.framework','AliyunMediaDownloader.framework'
+	playerSDK.frameworks = 'MediaPlayer','CoreGraphics','QuartzCore','CoreVideo','OpenGLES','AVFoundation','CoreMedia','VideoToolbox','AudioToolbox'
+  end	
    
   #s.frameworks = 'VideoToolBox','MediaPlayer'
   #s.libraries = 'z'  
