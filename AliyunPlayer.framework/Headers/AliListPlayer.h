@@ -96,6 +96,13 @@ OBJC_EXPORT
  */
 - (BOOL) moveTo:(NSString*)uid accId:(NSString*)accId accKey:(NSString*)accKey token:(NSString*)token region:(NSString*)region;
 
+
+/**
+ @brief 设置最大的预缓存的内存大小，默认100M，最小20M
+ */
+@property (nonatomic, assign) int maxPreloadMemorySizeMB;
+
+
 /**
  @brief 获取/设置预加载的个数，当前位置的前preloadCount和后preloadCount，默认preloadCount = 2
  */

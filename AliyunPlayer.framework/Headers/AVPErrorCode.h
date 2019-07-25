@@ -173,18 +173,29 @@ typedef enum AVPErrorCode: NSUInteger {
 
 /**@brief 播放器事件类型，带描述字符串*/
 typedef enum AVPEventWithString: NSUInteger {
-    EVENT_START = 100,
-    /**@brief 切换到软解*/
-    EVENT_SWITCH_TO_SOFTWARE_DECODER = EVENT_START,
-    EVENT_AUDIO_CODEC_NOT_SUPPORT,
-    EVENT_AUDIO_DECODER_DEVICE_ERROR,
-    EVENT_VIDEO_CODEC_NOT_SUPPORT,
-    EVENT_VIDEO_DECODER_DEVICE_ERROR,
-    EVENT_PLAYER_DEMUXER_TRACE_ID,
-    EVENT_PLAYER_DEMUXER_EOF,
-    EVENT_PLAYER_NETWORK_RETRY,
-    EVENT_PLAYER_CACHE_SUCCESS,
-    EVENT_PLAYER_CACHE_ERROR
+    /**@brief 设置了硬解，但是切换为软解。额外信息为描述信息。*/
+    EVENT_SWITCH_TO_SOFTWARE_DECODER = 100,
+    /**@brief 音频解码格式不支持。额外信息为描述信息。*/
+    EVENT_AUDIO_CODEC_NOT_SUPPORT    = 101,
+    /**@brief 音频解码器设备失败。额外信息为描述信息。*/
+    EVENT_AUDIO_DECODER_DEVICE_ERROR = 102,
+    /**@brief 视频解码格式不支持。额外信息为描述信息。*/
+    EVENT_VIDEO_CODEC_NOT_SUPPORT    = 103,
+    /**@brief 视频解码器设备失败。额外信息为描述信息。*/
+    EVENT_VIDEO_DECODER_DEVICE_ERROR = 104,
+    /**@brief 视频渲染设备初始化失败。额外信息为描述信息。*/
+    EVENT_VIDEO_RENDER_INIT_ERROR    = 105,
+
+    /**@brief Demuxer trace ID for artp*/
+    EVENT_PLAYER_DEMUXER_TRACE_ID    = 106,
+    /**@brief 网络失败，需要重试。无额外信息。*/
+    EVENT_PLAYER_NETWORK_RETRY       = 108,
+    /**@brief 缓存成功。无额外信息。*/
+    EVENT_PLAYER_CACHE_SUCCESS       = 109,
+    /**@brief 缓存失败。额外信息为描述信息。*/
+    EVENT_PLAYER_CACHE_ERROR         = 110,
+    /**@brief 系统无可用内存来存放媒体数据。*/
+    EVENT_PLAYER_LOW_MEMORY          = 111,
 } AVPEventWithString;
 
 #endif

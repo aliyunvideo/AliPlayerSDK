@@ -78,6 +78,14 @@ OBJC_EXPORT
                      region:(NSString *)region
                 playConfig:(NSString *)playConfig;
 
+- (instancetype)initWithVid:(NSString *)vid
+                accessKeyId:(NSString *)accessKeyId
+            accessKeySecret:(NSString *)accessKeySecret
+              securityToken:(NSString *)securityToken
+                     region:(NSString *)region
+                     format:(NSString *)format
+                 playConfig:(NSString *)playConfig;
+
 /**
  @brief vid
  */
@@ -108,6 +116,11 @@ OBJC_EXPORT
  */
 @property (nonatomic, copy) NSString* playConfig;
 
+/**
+ @brief format,default is nil, value is "mp4|mp3|flv|m3u8"
+ */
+@property (nonatomic, copy) NSString* format;
+
 @end
 
 OBJC_EXPORT
@@ -121,6 +134,12 @@ OBJC_EXPORT
         playAuth:(NSString *)playAuth
           region:(NSString *)region
                 playConfig:(NSString *)playConfig;
+
+- (instancetype)initWithVid:(NSString *)vid
+                   playAuth:(NSString *)playAuth
+                     region:(NSString *)region
+                     format:(NSString *)format
+                 playConfig:(NSString *)playConfig;
 
 /**
  @brief vid
@@ -141,6 +160,11 @@ OBJC_EXPORT
  @brief playConfig
  */
 @property (nonatomic, copy) NSString* playConfig;
+
+/**
+ @brief format,default is nil, value is "mp4|mp3|flv|m3u8"
+ */
+@property (nonatomic, copy) NSString* format;
 
 @end
 

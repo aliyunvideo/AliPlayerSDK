@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AliyunPlayer/AliyunPlayer.h>
+#import "AVDConfig.h"
 
 @class AVPVidStsSource;
 @class AVPVidAuthSource;
@@ -73,6 +74,16 @@ OBJC_EXPORT
  @brief 删除下载文件
  */
 - (void)deleteFile;
+
+/**
+ @brief 获取下载config
+ */
+- (AVDConfig*) getConfig;
+
+/**
+ @brief 设置下载config
+ */
+- (void) setConfig:(AVDConfig*)config;
 
 /**
  @brief 设置下载的trackIndex
