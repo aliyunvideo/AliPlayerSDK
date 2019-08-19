@@ -108,6 +108,18 @@ OBJC_EXPORT
 
 @end
 
+
+OBJC_EXPORT
+@interface AVPThumbnailInfo : NSObject
+
+/**
+ @brief thumbnail URL
+ */
+@property (nonatomic, copy) NSString* URL;
+
+@end
+
+
 OBJC_EXPORT
 @interface AVPMediaInfo : NSObject
 
@@ -143,6 +155,11 @@ OBJC_EXPORT
  *转码类型，取值：FastTranscode（上传完成即转码，且转码完成才能播放），NoTranscode（上传完成不转码，且立即能播放），默认取值FastTranscode
  */
 @property (nonatomic, copy) NSString* transcodeMode;
+
+/**
+ @brief thumbnails in media info
+ */
+@property (nonatomic, strong) NSArray<AVPThumbnailInfo*>* thumbnails;
 
 /**
  @brief tracks in media info

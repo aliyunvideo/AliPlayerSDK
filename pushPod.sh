@@ -1,4 +1,3 @@
-#pod trunk register videosdk@service.aliyun.com 'jiafa' --description='macbook pro'
 
 pod spec lint AliPlayerPartSDK_iOS.podspec --verbose
 pod trunk push AliPlayerPartSDK_iOS.podspec

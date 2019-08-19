@@ -123,6 +123,12 @@ OBJC_EXPORT
 -(AVPTrackInfo*) getCurrentTrack:(AVPTrackType)type;
 
 /**
+ @brief 设置缩略图URL
+ @param URL 缩略图URL
+ */
+-(void) setThumbnailUrl:(NSString *)URL;
+
+/**
  @brief 获取指定位置的缩略图
  @param positionMs 代表在哪个指定位置的缩略图
  */
