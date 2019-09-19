@@ -3,7 +3,7 @@
 //  AliPlayerHeader
 //
 //  Created by shiping.csp on 2018/12/3.
-//  Copyright © 2018年 shiping.csp. All rights reserved.
+//  Copyright © 2018 shiping.csp. All rights reserved.
 //
 
 //! Project version number for AliPlayerHeader.

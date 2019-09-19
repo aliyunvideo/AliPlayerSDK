@@ -103,6 +103,7 @@ typedef enum AVPErrorCode: NSUInteger {
     ERROR_UNKNOWN_ERROR                                       = 0x20020000 - 1,
 
     // 3、demuxer、datasource模块错误
+    // 3. demuxer and datasource module errors.
     ERROR_DEMUXER_START                                       = 0x20030000,
     ERROR_DEMUXER_OPENURL                                     = 0x20030001,
     ERROR_DEMUXER_NO_VALID_STREAM                             = 0x20030002,
@@ -115,6 +116,7 @@ typedef enum AVPErrorCode: NSUInteger {
     ERROR_DECODE_AUDIO                                        = 0x20040002,
 
     // 4. network错误
+    // 4. Network errors.
     ERROR_NETWORK_UNKNOWN                                     = 0x20050000,
     ERROR_NETWORK_UNSUPPORTED                                 = 0x20050001,
     ERROR_NETWORK_RESOLVE                                     = 0x20050002,
@@ -129,15 +131,18 @@ typedef enum AVPErrorCode: NSUInteger {
 
 
     //5. codec 错误
+    //5. Codec errors.
     ERROR_CODEC_UNKNOWN                                       = 0x20060000,
     ERROR_CODEC_VIDEO_NOT_SUPPORT                             = 0x20060001,
     ERROR_CODEC_AUDIO_NOT_SUPPORT                             = 0x20060002,
 
     //6. internal 错误
+    //6. Internal errors.
     ERROR_INERNAL_UNKNOWN                                     = 0x20070000,
     ERROR_INERNAL_EXIT                                        = 0x20070001,
 
     //7.general 错误
+    //7. General errors.
     ERROR_GENERAL_UNKNOWN                                     = 0x20080000,
     ERROR_GENERAL_EPERM                                       = 0x20080001,
     ERROR_GENERAL_ENOENT                                      = 0x20080002,
@@ -172,29 +177,40 @@ typedef enum AVPErrorCode: NSUInteger {
 } AVPErrorCode;
 
 /**@brief 播放器事件类型，带描述字符串*/
+/****@brief Player event type with a description string.*/
 typedef enum AVPEventWithString: NSUInteger {
     /**@brief 设置了硬解，但是切换为软解。额外信息为描述信息。*/
+    /****@brief Hardware decoding is switched to software decoding. Additional information: description.*/
     EVENT_SWITCH_TO_SOFTWARE_DECODER = 100,
     /**@brief 音频解码格式不支持。额外信息为描述信息。*/
+    /****@brief Audio decoding does not support the specified format. Additional information: description.*/
     EVENT_AUDIO_CODEC_NOT_SUPPORT    = 101,
     /**@brief 音频解码器设备失败。额外信息为描述信息。*/
+    /****@brief The audio decoder failed. Additional information: description.*/
     EVENT_AUDIO_DECODER_DEVICE_ERROR = 102,
     /**@brief 视频解码格式不支持。额外信息为描述信息。*/
+    /****@brief Video decoding does not support the specified format. Additional information: description.*/
     EVENT_VIDEO_CODEC_NOT_SUPPORT    = 103,
     /**@brief 视频解码器设备失败。额外信息为描述信息。*/
+    /****@brief The video decoder failed. Additional information: description.*/
     EVENT_VIDEO_DECODER_DEVICE_ERROR = 104,
     /**@brief 视频渲染设备初始化失败。额外信息为描述信息。*/
+    /****@brief The video renderer failed. Additional information: description.*/
     EVENT_VIDEO_RENDER_INIT_ERROR    = 105,
 
     /**@brief Demuxer trace ID for artp*/
     EVENT_PLAYER_DEMUXER_TRACE_ID    = 106,
     /**@brief 网络失败，需要重试。无额外信息。*/
+    /****@brief Network connection failed. Try again. No additional information is provided.*/
     EVENT_PLAYER_NETWORK_RETRY       = 108,
     /**@brief 缓存成功。无额外信息。*/
+    /****@brief Content cached. No additional information is provided.*/
     EVENT_PLAYER_CACHE_SUCCESS       = 109,
     /**@brief 缓存失败。额外信息为描述信息。*/
+    /****@brief Failed to cache the content. Additional information: description.*/
     EVENT_PLAYER_CACHE_ERROR         = 110,
     /**@brief 系统无可用内存来存放媒体数据。*/
+    /****@brief The system does not have memory to store the media data.*/
     EVENT_PLAYER_LOW_MEMORY          = 111,
 } AVPEventWithString;
 

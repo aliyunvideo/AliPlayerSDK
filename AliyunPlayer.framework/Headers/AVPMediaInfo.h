@@ -3,7 +3,7 @@
 //  AliPlayerSDK
 //
 //  Created by shiping.csp on 2018/11/16.
-//  Copyright © 2018年 com.alibaba.AliyunPlayer. All rights reserved.
+//  Copyright © 2018 com.alibaba.AliyunPlayer. All rights reserved.
 //
 
 #ifndef AVPMediaInfo_h
@@ -148,11 +148,19 @@ OBJC_EXPORT
  @brief media duration
  * 单位是秒
  */
+/****
+ @brief media duration
+ * Unit: seconds.
+ */
 @property (nonatomic, assign) int duration;
 
 /**
  @brief media transcodeMode
  *转码类型，取值：FastTranscode（上传完成即转码，且转码完成才能播放），NoTranscode（上传完成不转码，且立即能播放），默认取值FastTranscode
+ */
+/****
+ @brief media transcodeMode
+ *Transcoding type. Valid values: FastTranscode and NoTranscode. FastTranscode: Transcode the content immediately after it is uploaded. Only transcoded content can be played. NoTranscode: Do not transcode the content after it is uploaded. Content can be played without transcoding. Default: FastTranscode.
  */
 @property (nonatomic, copy) NSString* transcodeMode;
 

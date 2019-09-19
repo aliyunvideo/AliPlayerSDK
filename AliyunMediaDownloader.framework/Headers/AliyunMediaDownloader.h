@@ -3,7 +3,7 @@
 //  AliyunMediaDownloader
 //
 //  Created by shiping.csp on 2019/2/25.
-//  Copyright © 2019年 shiping.csp. All rights reserved.
+//  Copyright © 2019 shiping.csp. All rights reserved.
 //
 
 //! Project version number for AliyunMediaDownloader.

@@ -3,7 +3,7 @@
 //  AliPlayerSDK
 //
 //  Created by shiping.csp on 2018/11/16.
-//  Copyright © 2018年 com.alibaba.AliyunPlayer. All rights reserved.
+//  Copyright © 2018 com.alibaba.AliyunPlayer. All rights reserved.
 //
 
 #ifndef AVPSource_h
@@ -17,17 +17,34 @@ OBJC_EXPORT
 /**
  @brief 封面地址
  */
+/****
+ @brief The URL of the album cover.
+ */
 @property (nonatomic, copy) NSString* coverURL;
 
 /**
  @brief 视频标题
  */
+/****
+ @brief The title of the video.
+ */
 @property (nonatomic, copy) NSString* title;
 
 /**
- @brief 视频清晰度
+ @brief 期望播放的清晰度
+ */
+/****
+ @brief The preferred definition for playback.
  */
 @property (nonatomic, copy) NSString* quality;
+
+/**
+ @brief 是否强制使用此清晰度。如果强制，则在没有对应清晰度的情况下播放不了。
+ */
+/****
+ @brief Whether to force the player to play the media with the specified definition. If the media does not support the specified definition, then it cannot be played.
+ */
+@property (nonatomic, assign) BOOL forceQuality;
 
 @end
 
@@ -52,6 +69,12 @@ OBJC_EXPORT
  */
 @property (nonatomic, copy) NSURL* playerUrl;
 
+/**
+ @brief cache file path, app may cache the beginning of remote mp4 file to local path,
+ * set it to player to improve loading speed.
+ */
+@property (nonatomic, copy) NSString* cacheFile;
+
 @end
 
 OBJC_EXPORT
@@ -64,6 +87,14 @@ OBJC_EXPORT
  @param accessKeySecret 用户sts的accessKey secret
  @param securityToken 用户sts的token信息
  @param region 用户sts的region信息
+ */
+/****
+ @brief Play by VID and STS. Temporary AccessKey ID, AccessKey Secret, and token: Activate RAM, and use the API or SDK provided by STS to retrieve the AccessKey ID, AccessKey Secret, and token. Details about parameters in playback and download requests: https://help.aliyun.com/document_detail/28788.html?spm=5176.doc28787.6.706.2G5SLS
+ @param vid The VID of the video.
+ @param accessKeyId The AccessKey ID of the user.
+ @param accessKeySecret The AccessKey Secret of the user.
+ @param securityToken The token information of the user.
+ @param region The region information of the user.
  */
 - (instancetype)initWithVid:(NSString *)vid
                 accessKeyId:(NSString *)accessKeyId
@@ -181,6 +212,17 @@ OBJC_EXPORT
  @param region 用户region信息
  @param playDomain 用户playDomain信息
  @param mtsHlsUriToken 用户mtsHlsUriToken信息
+ */
+/****
+ @brief Play by VID and MPS. This playback method is used by video transcoding service users. Reference for some of the parameters: https://help.aliyun.com/document_detail/53522.html?spm=5176.doc53534.2.5.mhSfOh
+ @param vid The VID of the video.
+ @param accId The AccessKey ID of the user.
+ @param accSecret The AccessKey Secret of the user.
+ @param stsToken The token information of the user.
+ @param authInfo The authInfo of the user.
+ @param region The region information of the user.
+ @param playDomain The playDomain information of the user.
+ @param mtsHlsUriToken The mtsHlsUriToken information of the user.
  */
 - (instancetype)initWithVid:(NSString*)vid
                  accId:(NSString *)accId
