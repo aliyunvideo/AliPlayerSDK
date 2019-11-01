@@ -172,6 +172,18 @@ OBJC_EXPORT
 -(void)selectTrack:(int)trackIndex;
 
 /**
+ @brief 根据trackIndex，切换清晰度
+ @param trackIndex 选择清晰度的index，SELECT_AVPTRACK_TYPE_VIDEO_AUTO代表自适应码率
+ @param accurate 是否精准跳转。
+ */
+/****
+ @brief Switch definition according to the specified track index.
+ @param trackIndex Specify a definition index. SELECT_AVPTRACK_TYPE_VIDEO_AUTO: auto bitrate adjustment.
+ @param accurate Use accurate seeking to select track。
+ */
+-(void)selectTrack:(int)trackIndex accurate:(BOOL)accurate;
+
+/**
  @brief 获取媒体信息，包括track信息
  */
 /****
