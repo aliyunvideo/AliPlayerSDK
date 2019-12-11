@@ -176,14 +176,6 @@ OBJC_EXPORT
 + (NSString*) getSDKVersion;
 
 /**
- @brief 是否打开log输出
- */
-/****
- @brief Enable or disable logging.
- */
-@property(nonatomic) BOOL enableLog;
-
-/**
  @brief 获取下载之后的文件路径
  */
 /****

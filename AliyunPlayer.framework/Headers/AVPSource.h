@@ -46,6 +46,12 @@ OBJC_EXPORT
  */
 @property (nonatomic, assign) BOOL forceQuality;
 
+/**
+ @brief 设置点播服务器返回的码率清晰度类型。例如："FD,LD,SD,HD,OD,2K,4K,SQ,HQ"。
+ *      注意：如果类型为"AUTO"， 那么只会返回自适应码率流。
+ */
+@property (nonatomic, copy) NSString* definitions;
+
 @end
 
 
@@ -148,7 +154,7 @@ OBJC_EXPORT
 @property (nonatomic, copy) NSString* playConfig;
 
 /**
- @brief format,default is nil, value is "mp4|mp3|flv|m3u8"
+ @brief format,default is nil, value is "mp4,mp3,flv,m3u8"
  */
 @property (nonatomic, copy) NSString* format;
 
@@ -193,7 +199,7 @@ OBJC_EXPORT
 @property (nonatomic, copy) NSString* playConfig;
 
 /**
- @brief format,default is nil, value is "mp4|mp3|flv|m3u8"
+ @brief format,default is nil, value is "mp4,mp3,flv,m3u8"
  */
 @property (nonatomic, copy) NSString* format;
 

@@ -21,7 +21,8 @@ typedef enum AVPErrorCode: NSUInteger {
     ERROR_SERVER_POP_SECURITYTOKEN_MAILFORMED                 = 0x20010109,
     ERROR_SERVER_POP_SECURITYTOKEN_MISMATCH_ACCESSKEY         = 0x2001010A,
     ERROR_SERVER_POP_SIGNATURE_NOT_MATCH                      = 0x2001010B,
-
+    ERROR_SERVER_POP_ACCESSKEYID_NOT_FOUND                    = 0x2001010C,
+    ERROR_SERVER_POP_TOKEN_EXPIRED                            = 0x2001010D,
 
     //------------------     VOD  begin ------------------------
     ERROR_SERVER_VOD_UNKNOWN                                  = 0x20010200,

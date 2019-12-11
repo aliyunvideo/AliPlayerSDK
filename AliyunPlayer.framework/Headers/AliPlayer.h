@@ -141,13 +141,13 @@ OBJC_EXPORT
 
 /**
  @brief 跳转到指定的播放位置
- @param time 新的播放位置
+ @param time 新的播放位置，单位毫秒
  @param seekMode seek模式
  @see AVPSeekMode
  */
 /****
  @brief Seek to a specified position.
- @param time The specified position that the player will seek to.
+ @param time The specified position that the player will seek to, Unit: millisecond.
  @param seekMode Seek mode.
  @see AVPSeekMode
  */
@@ -351,6 +351,16 @@ OBJC_EXPORT
 -(NSString *) getPropertyString:(AVPPropertyKey)key;
 
 /**
+ @brief 设置多码率时默认播放的码率。将会选择与之最接近的一路流播放。
+ @param bandWidth 播放的码率。
+ */
+/****
+ @brief Set the default playback bitrate for multi-bit rate. The nearest stream will be selected.
+ @param bandWidth bit rate .
+ */
+-(void) setDefaultBandWidth:(int)bandWidth;
+
+/**
  @brief 获取SDK版本号信息
  */
 /****
@@ -405,16 +415,6 @@ OBJC_EXPORT
  @brief Enable or disable autoplay. KVO is supported.
  */
 @property(nonatomic, getter=isAutoPlay) BOOL autoPlay;
-
-/**
- @brief 是否打开log输出
- @see 使用setLogCallbackInfo
- */
-/****
- @brief Enable or disable logging.
- @see Use setLogCallbackInfo.
- */
-@property(nonatomic) BOOL enableLog;
 
 /**
  @brief 渲染镜像模式，支持KVO
@@ -522,6 +522,18 @@ OBJC_EXPORT
  @see AVPDelegate
  */
 @property (nonatomic, weak) id<AVPDelegate> delegate;
+
+/**
+ @brief 是否打开log输出
+ @param enableLog true表示输出log
+ @see 使用setLogCallbackInfo
+ */
+/****
+ @brief Enable or disable logging.
+ @param enableLog set as true to output log
+ @see Use setLogCallbackInfo.
+ */
++(void)setEnableLog:(BOOL)enableLog;
 
 /**
  @brief 设置日志打印回调block，异步
