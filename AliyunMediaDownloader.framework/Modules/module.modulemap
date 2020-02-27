@@ -1,0 +1,6 @@
+framework module AliyunMediaDownloader {
+  umbrella header "AliyunMediaDownloader.h"
+
+  export *
+  module * { export * }
+}

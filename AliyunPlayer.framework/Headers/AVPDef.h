@@ -110,7 +110,7 @@ typedef enum AVPEventType: NSUInteger {
     /**@brief 自动启播事件*/
     /****@brief Autoplay start event*/
     AVPEventAutoPlayStart,
-    /**@brief 首帧显示时间*/
+    /**@brief 首帧显示事件*/
     /****@brief First frame display event*/
     AVPEventFirstRenderedStart,
     /**@brief 播放完成事件*/
@@ -153,6 +153,16 @@ typedef enum AVPPropertyKey: NSUInteger {
      */
     AVP_KEY_CONNECT_INFO  = 1,
 } AVPPropertyKey;
+
+typedef enum AVPOption: NSUInteger {
+    /**
+     * @brief 渲染的fps。类型为Float
+     */
+    /****
+     * @brief render fps. Return value type is Float
+     */
+    AVP_OPTION_RENDER_FPS = 0,
+} AVPOption;
 
 /**
  @brief AVPErrorModel为播放错误信息描述

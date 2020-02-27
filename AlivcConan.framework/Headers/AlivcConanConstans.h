@@ -11,7 +11,7 @@
 
 
 // SDK Version
-extern NSString * const AlivcConanDKVersion;
+extern NSString * const AlivcConanSDKVersion;
 
 
 // BusinessType

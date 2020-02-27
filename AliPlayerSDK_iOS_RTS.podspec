@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AliPlayerSDK_iOS_RTS"
-  s.version      = "4.7.3"
+  s.version      = "5.1.0"
   s.summary      = "AliPlayerSDK_iOS_RTS."
   s.description  = <<-DESC
                    It's an SDK for aliyun video vodplay, which implement by Objective-C.

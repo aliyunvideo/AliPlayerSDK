@@ -143,30 +143,48 @@
 - (void)onTrackChanged:(AliPlayer*)player info:(AVPTrackInfo*)info;
 
 /**
- @brief 字幕显示回调
+ @brief 外挂字幕被添加
  @param player 播放器player指针
  @param index 字幕显示的索引号
+ @param URL 字幕url
+ */
+/****
+ @brief External subtitles have been added
+ @param player Player pointer.
+ @param trackIndex Subtitle index.
+ @param URL subtitle url
+ */
+- (void)onSubtitleExtAdded:(AliPlayer*)player trackIndex:(int)trackIndex URL:(NSString *)URL;
+
+/**
+ @brief 字幕显示回调
+ @param player 播放器player指针
+ @param trackIndex 字幕流索引.
+ @param subtitleID  字幕ID.
  @param subtitle 字幕显示的字符串
  */
 /****
  @brief Show subtitle callback.
  @param player Player pointer.
- @param index Subtitle index.
+ @param trackIndex Subtitle stream index.
+ @param subtitleID Subtitle ID.
  @param subtitle Subtitle string.
  */
-- (void)onSubtitleShow:(AliPlayer*)player index:(int)index subtitle:(NSString *)subtitle;
+- (void)onSubtitleShow:(AliPlayer*)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID subtitle:(NSString *)subtitle;
 
 /**
  @brief 字幕隐藏回调
  @param player 播放器player指针
- @param index 字幕显示的索引号
+ @param trackIndex 字幕流索引.
+ @param subtitleID  字幕ID.
  */
 /****
  @brief Hide subtitle callback.
  @param player Player pointer.
- @param index Subtitle index.
+ @param trackIndex Subtitle stream index.
+ @param subtitleID Subtitle ID.
  */
-- (void)onSubtitleHide:(AliPlayer*)player index:(int)index;
+- (void)onSubtitleHide:(AliPlayer*)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID;
 
 /**
  @brief 获取缩略图成功回调
@@ -226,17 +244,34 @@
 
 /**
  @brief SEI回调
+ @param player 播放器player指针
  @param type 类型
  @param data 数据
  @see AVPImage
  */
 /****
  @brief SEI callback.
+ @param player Player pointer.
  @param type Type.
  @param data Data.
  @see AVPImage
  */
 - (void)onSEIData:(AliPlayer*)player type:(int)type data:(NSData *)data;
+
+/**
+ @brief 播放器渲染信息回调
+ @param player 播放器player指针
+ @param timeMs 渲染时的系统时间
+ @param pts  视频帧pts
+ */
+/****
+ @brief Player render info callback.
+ @param player Player pointer.
+ @param timeMs system time when render.
+ @param pts  video frame pts
+ @see AVPEventType
+ */
+-(void)onVideoRendered:(AliPlayer*)player timeMs:(int64_t)timeMs pts:(int64_t)pts;
 
 @end
 

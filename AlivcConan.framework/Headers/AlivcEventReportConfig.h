@@ -75,6 +75,7 @@ namespace AlivcConan
     const char* secretKey{ nullptr };                             //SLS服务鉴权信息secretKey(使用外部鉴权时必须设置)
     const char* securityToken{ nullptr };                         //SLS服务鉴权信息securityToken(使用外部鉴权时必须设置)
     const char* strExpireTime{ nullptr };                         //SLS服务鉴权信息strExpireTime(使用外部鉴权时必须设置)
+    const char* mConanVersion{nullptr};
   };
 }
 

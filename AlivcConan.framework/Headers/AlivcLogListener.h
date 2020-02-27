@@ -20,9 +20,17 @@ namespace AlivcConan
     CONAN_EXTERN
     virtual void OnUploadFileSuccess(AlivcLog* logInstance, const char* logFilePath, const char* uploadPath) = 0;
 
+
     /**
-    *@brief 初始化完成(初始化完成后才可上传日志)
+    *@brief 上报日志文件结束
     */
+    CONAN_EXTERN
+    virtual void OnUploadFilesFinish() = 0;
+
+
+      /**
+      *@brief 初始化完成(初始化完成后才可上传日志)
+      */
     CONAN_EXTERN
     virtual void OnInitComplete(AlivcLog* logInstance) = 0;
 

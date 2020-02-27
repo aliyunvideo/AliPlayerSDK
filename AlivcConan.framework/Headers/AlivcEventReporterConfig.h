@@ -90,5 +90,12 @@ OBJC_EXPORT
 @property (nonatomic, assign) AlivcConanBusinessType businessType;
 
 
+/**
+ 柯南版本号
+ * 只读
+ */
+@property (nonatomic, readonly) NSString *conanVersion;
+
+
 @end
 
