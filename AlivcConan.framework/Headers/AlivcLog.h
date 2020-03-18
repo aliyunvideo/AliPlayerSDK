@@ -80,34 +80,6 @@ namespace AlivcConan
     virtual void SetSessionId(const char* sessionId) = 0;
 
     /**
-      *@brief 设置应用id
-      *@param[in] appId
-      */
-    CONAN_EXTERN
-    virtual void SetAppId(const char* appId) = 0;
-
-    /**
-      *@brief 设置子模块名称
-      *@param[in] module
-      */
-    CONAN_EXTERN
-    virtual void SetSubModule(const char* module) = 0;
-
-    /**
-     *@brief 设置系统版本
-     *@param[in] version
-     */
-    CONAN_EXTERN
-    virtual void SetOSVersion(const char* version) = 0;
-
-    /**
-     *@brief 设置sdk版本
-     *@param[in] version
-     */
-    CONAN_EXTERN
-    virtual void SetSDKVersion(const char* version) = 0;
-
-    /**
     *@brief 获取日志实例Id
     *@return 日志实例Id
     *@remark
@@ -239,14 +211,6 @@ namespace AlivcConan
     */
     CONAN_EXTERN
     virtual void RemoveLogFileAfterUpload(bool enable) = 0;
-
-    /**
-    *@brief 设置上传日志文件后是否要释放日志上报组件
-    *@param[in]  autoRelease  设置为true时，上传日志完毕释放资源，设置为false时不释放
-    *@remark
-    */
-    CONAN_EXTERN
-    virtual void SetAutoReleaseAfterUpload(bool autoRelease) = 0;
 
     /**
     *@brief 设置上传日志文件的最大字节数

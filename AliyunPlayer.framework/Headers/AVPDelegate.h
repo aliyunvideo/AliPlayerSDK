@@ -143,48 +143,30 @@
 - (void)onTrackChanged:(AliPlayer*)player info:(AVPTrackInfo*)info;
 
 /**
- @brief 外挂字幕被添加
- @param player 播放器player指针
- @param index 字幕显示的索引号
- @param URL 字幕url
- */
-/****
- @brief External subtitles have been added
- @param player Player pointer.
- @param trackIndex Subtitle index.
- @param URL subtitle url
- */
-- (void)onSubtitleExtAdded:(AliPlayer*)player trackIndex:(int)trackIndex URL:(NSString *)URL;
-
-/**
  @brief 字幕显示回调
  @param player 播放器player指针
- @param trackIndex 字幕流索引.
- @param subtitleID  字幕ID.
+ @param index 字幕显示的索引号
  @param subtitle 字幕显示的字符串
  */
 /****
  @brief Show subtitle callback.
  @param player Player pointer.
- @param trackIndex Subtitle stream index.
- @param subtitleID Subtitle ID.
+ @param index Subtitle index.
  @param subtitle Subtitle string.
  */
-- (void)onSubtitleShow:(AliPlayer*)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID subtitle:(NSString *)subtitle;
+- (void)onSubtitleShow:(AliPlayer*)player index:(int)index subtitle:(NSString *)subtitle;
 
 /**
  @brief 字幕隐藏回调
  @param player 播放器player指针
- @param trackIndex 字幕流索引.
- @param subtitleID  字幕ID.
+ @param index 字幕显示的索引号
  */
 /****
  @brief Hide subtitle callback.
  @param player Player pointer.
- @param trackIndex Subtitle stream index.
- @param subtitleID Subtitle ID.
+ @param index Subtitle index.
  */
-- (void)onSubtitleHide:(AliPlayer*)player trackIndex:(int)trackIndex subtitleID:(long)subtitleID;
+- (void)onSubtitleHide:(AliPlayer*)player index:(int)index;
 
 /**
  @brief 获取缩略图成功回调

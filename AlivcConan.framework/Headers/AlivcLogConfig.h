@@ -1,4 +1,4 @@
-#ifndef Alivc_Log_Config_h
+﻿#ifndef Alivc_Log_Config_h
 #define Alivc_Log_Config_h
 
 #include <string>
