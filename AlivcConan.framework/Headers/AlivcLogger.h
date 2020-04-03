@@ -6,6 +6,10 @@
 //  Copyright © 2018年 Aliyun. All rights reserved.
 //
 
+//{"setAppIdNative",                 "(Ljava/lang/String;)V",                    (void *) setAppId},
+//{"setOSVersionNative",             "(Ljava/lang/String;)V",                    (void *) setOSVersion},
+//{"setSDKVersionNative",            "(Ljava/lang/String;)V",                    (void *) setSDKVersion},
+//{"setSubModuleNative",             "(Ljava/lang/String;)V",                    (void *) setSubModule},
 #import <Foundation/Foundation.h>
 #import "AlivcLoggerConfig.h"
 
@@ -15,7 +19,7 @@
 OBJC_EXPORT
 @interface AlivcLogger : NSObject
 
-
+@property (nonatomic, assign) BOOL mAutoRelease;
 /**
  log delegate
  */
@@ -52,7 +56,12 @@ OBJC_EXPORT
  */
 - (void)removeLogFileAfterUpload:(BOOL)enable;
 
-
+/**
+ 日志上传成功后是否释放资源
+ 
+ @param autoRelease YES:移除 NO:不移除 [默认 : NO]
+ */
+- (void)setAutoReleaseAfterUpload:(BOOL)autoRelease;
 /**
  设置文件大小上限
  
@@ -67,6 +76,33 @@ OBJC_EXPORT
  */
 - (void)setTraceId:(NSString *)traceId;
 
+/**
+ 设置appId
+ 
+ @param appId 应用id
+ */
+- (void)setAppId:(NSString *)appId;
+
+/**
+ 设置系统版本
+ 
+ @param osVersion 系统版本号
+ */
+- (void)setOSVersion:(NSString *)osVersion;
+
+/**
+ 设置sdk版本
+ 
+ @param sdkVersion sdk版本号
+ */
+- (void)setSDKVersion:(NSString *)sdkVersion;
+
+/**
+ 设置子模块名称
+ 
+ @param subModule 子模块
+ */
+- (void)setSubModule:(NSString *)subModule;
 
 /**
  设置日志模式
