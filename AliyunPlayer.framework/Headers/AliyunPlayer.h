@@ -26,4 +26,5 @@
 #import <AliyunPlayer/AVPCacheConfig.h>
 #import <AliyunPlayer/AliPrivateService.h>
 #import <AliyunPlayer/VidPlayerConfigGen.h>
+#import <AliyunPlayer/AliPlayerGlobalSettings.h>
 

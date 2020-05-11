@@ -468,6 +468,12 @@ typedef enum AVPEventWithString: NSUInteger {
     /****@brief Subtitle selection failed. Additional information is the cause of failure.*/
     EVENT_PLAYER_SUBTITLE_SELECT_ERROR = 114,
 
+    /**@brief RTS 服务器可能断开连接。*/
+    /****@brief RTS server maybe disconnect.*/
+    EVENT_PLAYER_RTS_SERVER_MAYBE_DISCONNECT = 0x30010001,
+    /**@brief RTS 服务器恢复连接。*/
+    /****@brief RTS server recover.*/
+    EVENT_PLAYER_RTS_SERVER_RECOVER          = 0x30010002,
 } AVPEventWithString;
 
 #endif
