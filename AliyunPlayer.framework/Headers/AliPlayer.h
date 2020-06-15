@@ -27,11 +27,11 @@ OBJC_EXPORT
 
 /**
  @brief 初始化播放器
- @param traceID 便于跟踪日志，设为"DisableAnalytics"可关闭日志分析系统（不推荐）。
+ @param traceID 用于跟踪debug信息
  */
 /****
  @brief Initialize the player.
- @param traceID A trace ID for debugging. Set as "DisableAnalytics" to disable report analytics data to server(not recommended).
+ @param traceID A trace ID for debugging.
  */
 - (instancetype)init:(NSString*)traceID;
 
@@ -243,7 +243,6 @@ OBJC_EXPORT
  @param callback The function pointer of the callback.
  */
 - (void) setPlayUrlConvertCallback:(PlayURLConverCallback)callback;
-
 /**
  @brief 播放器设置
  @param config AVPConfig类型
@@ -331,28 +330,6 @@ OBJC_EXPORT
 -(NSString *) getCacheFilePath:(NSString *)vid format:(NSString *)format definition:(NSString *)definition previewTime:(int)previewTime;
 
 /**
- @brief 添加外挂字幕。
- @param URL 字幕地址
- */
-/****
- @brief Add external subtitles
- @param URL subtitle address
- */
--(void) addExtSubtitle:(NSString *)URL;
-
-/**
- @brief 选择外挂字幕
- @param trackIndex 字幕索引
- @param enable true：选择，false：关闭
- */
-/****
- @brief Select external subtitles
- @param trackIndex caption index
- @param enable true: select, false: close
- */
--(void) selectExtSubtitle:(int)trackIndex enable:(BOOL)enable;
-
-/**
  @brief 重新加载。比如网络超时时，可以重新加载。
  */
 /****
@@ -381,6 +358,16 @@ OBJC_EXPORT
  @param bandWidth bit rate .
  */
 -(void) setDefaultBandWidth:(int)bandWidth;
+
+/**
+ @brief 设置代理 参考AVPEventReportParamsDelegate
+ @see AVPEventReportParamsDelegate
+ */
+/****
+ @brief Set a proxy.  See AVPEventReportParamsDelegate.
+ @see AVPEventReportParamsDelegate
+*/
+-(void) setEventReportParamsDelegate:(id<AVPEventReportParamsDelegate>)delegate;
 
 /**
  * @brief 获取播放器的参数
@@ -518,10 +505,10 @@ OBJC_EXPORT
 @property (nonatomic, readonly) int rotation;
 
 /**
- @brief 获取/设置播放器的音量（非系统音量），支持KVO，范围0.0~2.0，当音量大于1.0时，可能出现噪音，不推荐使用。
+ @brief 获取/设置播放器的音量，支持KVO
  */
 /****
- @brief Query or set the volume of the player(Not system volume). KVO is supported. The range is 0.0~2.0，it maybe lead to noise if set volume more then 1.0, not recommended.
+ @brief Query or set the volume of the player. KVO is supported.
  */
 @property (nonatomic, assign) float volume;
 

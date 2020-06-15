@@ -110,7 +110,7 @@ typedef enum AVPEventType: NSUInteger {
     /**@brief 自动启播事件*/
     /****@brief Autoplay start event*/
     AVPEventAutoPlayStart,
-    /**@brief 首帧显示事件*/
+    /**@brief 首帧显示时间*/
     /****@brief First frame display event*/
     AVPEventFirstRenderedStart,
     /**@brief 播放完成事件*/
