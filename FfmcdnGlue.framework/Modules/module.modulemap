@@ -1,0 +1,6 @@
+framework module FfmcdnGlue {
+  umbrella header "FfmcdnGlue.h"
+
+  export *
+  module * { export * }
+}
