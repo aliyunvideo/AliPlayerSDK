@@ -1,9 +1,6 @@
 #ifndef Alivc_Event_Report_Listener_h
 #define Alivc_Event_Report_Listener_h
 
-#include <string>
-#include <map>
-
 namespace AlivcConan
 {
   class AlivcEventReport;
@@ -14,14 +11,6 @@ namespace AlivcConan
   class AlivcEventReportListener
   {
   public:
-
-      /**
-      *@brief 发送事件
-      *@remark
-      */
-      CONAN_EXTERN
-      virtual void OnEventReport(AlivcEventReport* report , std::map<std::string ,std::string> params) = 0;
-
     /**
     *@brief 数据埋点错误发生
     *@param[in]  report 数据埋点实例
