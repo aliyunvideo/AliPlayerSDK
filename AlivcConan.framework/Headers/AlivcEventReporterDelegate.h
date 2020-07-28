@@ -41,4 +41,7 @@
  */
 - (void)onAlivcEventReportStsExpired:(AlivcEventReporter *)eventReport;
 
+
+- (void)onAlivcEventReport:(AlivcEventReporter *)eventReport
+                    params:(NSMutableDictionary<NSString *, NSString *>*) params;
 @end

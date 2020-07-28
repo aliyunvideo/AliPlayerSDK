@@ -420,6 +420,16 @@ OBJC_EXPORT
 #endif
 
 /**
+ @brief 设置代理 参考AVPEventReportParamsDelegate
+ @see AVPEventReportParamsDelegate
+ */
+/****
+ @brief Set a proxy.  See AVPEventReportParamsDelegate.
+ @see AVPEventReportParamsDelegate
+*/
+-(void) setEventReportParamsDelegate:(id<AVPEventReportParamsDelegate>)delegate;
+
+/**
  * @brief 获取播放器的参数
  *
  * @param key 参数值

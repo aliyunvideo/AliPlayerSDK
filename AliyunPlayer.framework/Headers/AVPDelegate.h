@@ -275,4 +275,7 @@
 
 @end
 
+@protocol AVPEventReportParamsDelegate <NSObject>
+-(void)onEventReportParams:(NSDictionary<NSString *, NSString *>*)params;
+@end
 #endif /* AVPDelegate_h */
