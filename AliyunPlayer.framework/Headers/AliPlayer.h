@@ -13,6 +13,8 @@
 #import "AVPMediaInfo.h"
 #import "AVPConfig.h"
 #import "AVPCacheConfig.h"
+@protocol CicadaAudioSessionDelegate;
+@protocol CicadaRenderDelegate;
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -27,11 +29,11 @@ OBJC_EXPORT
 
 /**
  @brief 初始化播放器
- @param traceID 用于跟踪debug信息
+ @param traceID 便于跟踪日志，设为"DisableAnalytics"可关闭日志分析系统（不推荐）。
  */
 /****
  @brief Initialize the player.
- @param traceID A trace ID for debugging.
+ @param traceID A trace ID for debugging. Set as "DisableAnalytics" to disable report analytics data to server(not recommended).
  */
 - (instancetype)init:(NSString*)traceID;
 
@@ -82,6 +84,10 @@ OBJC_EXPORT
  @see AVPVidAuthSource
  */
 - (void)setAuthSource:(AVPVidAuthSource*)source;
+
+- (void)setLiveStsSource:(AVPLiveStsSource*)source;
+
+- (void)updateLiveStsInfo:(NSString*)accId accKey:(NSString*)accKey token:(NSString*)token region:(NSString*)region;
 
 /**
  @brief 播放准备，异步
@@ -330,6 +336,28 @@ OBJC_EXPORT
 -(NSString *) getCacheFilePath:(NSString *)vid format:(NSString *)format definition:(NSString *)definition previewTime:(int)previewTime;
 
 /**
+ @brief 添加外挂字幕。
+ @param URL 字幕地址
+ */
+/****
+ @brief Add external subtitles
+ @param URL subtitle address
+ */
+-(void) addExtSubtitle:(NSString *)URL;
+
+/**
+ @brief 选择外挂字幕
+ @param trackIndex 字幕索引
+ @param enable true：选择，false：关闭
+ */
+/****
+ @brief Select external subtitles
+ @param trackIndex caption index
+ @param enable true: select, false: close
+ */
+-(void) selectExtSubtitle:(int)trackIndex enable:(BOOL)enable;
+
+/**
  @brief 重新加载。比如网络超时时，可以重新加载。
  */
 /****
@@ -358,6 +386,38 @@ OBJC_EXPORT
  @param bandWidth bit rate .
  */
 -(void) setDefaultBandWidth:(int)bandWidth;
+
+#if TARGET_OS_IPHONE
+/**
+ @brief 设置视频的背景色
+ @param color  the color
+ */
+/****
+ @brief Set video background color
+ @param color  the color
+ */
+-(void) setVideoBackgroundColor:(UIColor *)color;
+
+/**
+ @brief 设置视频快速启动
+ @param enable  true：开启，false：关闭
+ */
+/****
+ @brief Set video fast start
+ @param enable  true：enable，false: disable
+ */
+-(void) setFastStart:(BOOL)enable;
+
+/**
+ @brief 设置ip解析类型
+ @param type  ip解析类型
+ */
+/****
+ @brief Set ip resolve type
+ @param type ip resolve type
+ */
+-(void) setIPResolveType:(AVPIpResolveType)type;
+#endif
 
 /**
  @brief 设置代理 参考AVPEventReportParamsDelegate
@@ -505,10 +565,10 @@ OBJC_EXPORT
 @property (nonatomic, readonly) int rotation;
 
 /**
- @brief 获取/设置播放器的音量，支持KVO
+ @brief 获取/设置播放器的音量（非系统音量），支持KVO，范围0.0~2.0，当音量大于1.0时，可能出现噪音，不推荐使用。
  */
 /****
- @brief Query or set the volume of the player. KVO is supported.
+ @brief Query or set the volume of the player(Not system volume). KVO is supported. The range is 0.0~2.0，it maybe lead to noise if set volume more then 1.0, not recommended.
  */
 @property (nonatomic, assign) float volume;
 
@@ -547,6 +607,21 @@ OBJC_EXPORT
 @property (nonatomic, weak) id<AVPDelegate> delegate;
 
 /**
+ * 设置渲染回调。
+ */
+@property (nonatomic, weak) id <CicadaRenderDelegate> renderDelegate;
+
+/**
+ @brief 设置AudioSession的Delegate
+ @param delegate Delegate对象
+ */
+/****
+ @brief 设置AudioSession的Delegate
+ @param delegate Delegate对象
+ */
++ (void)setAudioSessionDelegate:(id<CicadaAudioSessionDelegate>)delegate;
+
+/**
  @brief 是否打开log输出
  @param enableLog true表示输出log
  @see 使用setLogCallbackInfo
@@ -570,5 +645,6 @@ OBJC_EXPORT
  */
 +(void) setLogCallbackInfo:(AVPLogLevel)logLevel callbackBlock:(void (^)(AVPLogLevel logLevel,NSString* strLog))block;
 
-@end
+-(void) setVerifyStsCallback:(AVPStsStatus (^)(AVPStsInfo info)) callback;
 
+@end

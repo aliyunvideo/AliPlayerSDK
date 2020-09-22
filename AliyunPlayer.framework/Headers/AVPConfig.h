@@ -117,6 +117,14 @@ OBJC_EXPORT
  */
 @property (nonatomic, assign) BOOL enableSEI;
 
+/* set the video format for renderFrame callback
+ * vtb decoder only, equal to OSType, not be supported by other decoder
+  * support 420v 420f y420 BGRA
+* */
+@property (nonatomic, assign) int pixelBufferOutputFormat;
+
+@property(nonatomic, assign) int liveStartIndex;
+
 @end
 
 #endif /* AVPConfig_h */

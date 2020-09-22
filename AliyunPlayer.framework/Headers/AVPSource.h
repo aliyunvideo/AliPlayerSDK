@@ -281,4 +281,58 @@ OBJC_EXPORT
 
 @end
 
+OBJC_EXPORT
+@interface AVPLiveStsSource : AVPSource
+
+- (instancetype)initWithUrl:(NSString *)url
+                accessKeyId:(NSString *)accessKeyId
+            accessKeySecret:(NSString *)accessKeySecret
+              securityToken:(NSString *)securityToken
+                     region:(NSString *)region
+                     domain:(NSString *)domain
+                         app:(NSString *)app
+                     stream:(NSString *)stream;
+
+/**
+ @brief url
+ */
+@property (nonatomic, copy) NSString* url;
+
+/**
+ @brief accessKeyId
+ */
+@property (nonatomic, copy) NSString* accessKeyId;
+
+/**
+ @brief accessKeySecret
+ */
+@property (nonatomic, copy) NSString* accessKeySecret;
+
+/**
+ @brief securityToken
+ */
+@property (nonatomic, copy) NSString* securityToken;
+
+/**
+ @brief region
+ */
+@property (nonatomic, copy) NSString* region;
+
+/**
+ @brief domain
+ */
+@property (nonatomic, copy) NSString* domain;
+
+/**
+ @brief app
+ */
+@property (nonatomic, copy) NSString* app;
+
+/**
+ @brief stream
+ */
+@property (nonatomic, copy) NSString* stream;
+
+@end
+
 #endif /* AVPSource_h */
