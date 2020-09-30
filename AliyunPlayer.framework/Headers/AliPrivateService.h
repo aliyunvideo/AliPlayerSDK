@@ -21,5 +21,15 @@ OBJC_EXPORT
  */
 + (void)initKey:(NSString*)datFile;
 
+/**
+ @brief 初始化下载秘钥信息
+ @param data 秘钥文件的内容
+ */
+/****
+ @brief Initialize the credential for downloading resources.
+ @param data The data of the credential file.
+ */
++ (void)initKeyWithData:(NSData*)data;
+
 @end
 

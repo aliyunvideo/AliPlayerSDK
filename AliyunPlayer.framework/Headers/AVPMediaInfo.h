@@ -146,13 +146,13 @@ OBJC_EXPORT
 
 /**
  @brief media duration
- * 单位是秒
+ * 单位: 毫秒
  */
 /****
  @brief media duration
- * Unit: seconds.
+ * Unit: millisecond.
  */
-@property (nonatomic, assign) int duration;
+@property (nonatomic, assign) int64_t duration;
 
 /**
  @brief media transcodeMode

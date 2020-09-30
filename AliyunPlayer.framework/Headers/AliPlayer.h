@@ -160,6 +160,16 @@ OBJC_EXPORT
 -(void)seekToTime:(int64_t)time seekMode:(AVPSeekMode)seekMode;
 
 /**
+ * 设置精准seek的最大间隔。
+ * @param delta 间隔时间，单位毫秒
+ */
+/****
+* set the maximum interval of precision seek.
+* @param delta interval in milliseconds
+*/
+-(void)setMaxAccurateSeekDelta:(int)delta;
+
+/**
  @brief 截图 AVPImage: mac平台返回NSImage，iOS平台返回UIImage
  */
 /****
@@ -443,6 +453,19 @@ OBJC_EXPORT
  */
 -(NSString *) getOption:(AVPOption)key;
 
+
+/**
+ @brief 向播放器的组件发送命令。
+ @param content 命令内容。
+ @return 命令执行结果， < 0 失败。
+ */
+/****
+ @brief Send command to component
+ @param content command content
+ @return < 0 on Error
+ */
+
+- (int)invokeComponent:(NSString *)content;
 /**
  @brief 获取SDK版本号信息
  */

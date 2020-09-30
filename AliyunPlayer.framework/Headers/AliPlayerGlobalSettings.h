@@ -34,4 +34,15 @@ OBJC_EXPORT
  */
 +(void)setIpResolveType:(AVPIpResolveType)type;
 
+
+/**
+ @brief 设置fairPlay的用户证书id, 每次设置必须在同一个线程，否则无法更新
+ @param certID 用户证书id
+ */
+/****
+ @brief Set the .fairPlay certID, update the certID must use the thread first set
+ @param type The IP type.
+ */
++(void)setFairPlayCertID:(NSString *)certID;
+
 @end

@@ -17,6 +17,9 @@ typedef enum AVPErrorCode: NSUInteger {
     /**@brief 请求失败。*/
     /****@brief  The request failed.*/
     ERROR_REQUEST_FAIL                                        = 0x20010005,
+    /**@brief 服务端返回播放信息为空。*/
+    /****@brief   The server returns no playback information. */
+    ERROR_NO_PLAY_INFO                                        = 0x20010006,
 
     //------------------     POP  begin ------------------------
     /**@brief POP未知错误。*/
@@ -467,6 +470,9 @@ typedef enum AVPEventWithString: NSUInteger {
     /**@brief 字幕选择失败。额外信息为失败原因。*/
     /****@brief Subtitle selection failed. Additional information is the cause of failure.*/
     EVENT_PLAYER_SUBTITLE_SELECT_ERROR = 114,
+    /**@brief 后台恢复时所需解码帧过多 */
+    /****@brief  decoder recover size is too large for background recovery.*/
+    EVENT_PLAYER_EVENT_DECODER_RECOVER_SIZE = 115,
 
     /**@brief 播放组件中透传输出的消息 */
     /****@brief The message passthrough the player component*/

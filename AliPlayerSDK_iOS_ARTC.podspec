@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AliPlayerSDK_iOS_ARTC"
-  s.version      = "5.1.6"
+  s.version      = "5.2.1"
   s.summary      = "AliPlayerSDK_iOS_ARTC."
   s.description  = <<-DESC
                    It's an SDK for aliyun video vodplay, which implement by Objective-C.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 	
 
   s.subspec 'AliPlayerSDK' do |playerSDK|
-	playerSDK.vendored_frameworks = 'artcSource.framework','FfmcdnGlue.framework'
+	playerSDK.vendored_frameworks = 'artcSource.framework'
 	playerSDK.frameworks = 'MediaPlayer','CoreGraphics','QuartzCore','CoreVideo','OpenGLES','AVFoundation','CoreMedia','VideoToolbox','AudioToolbox'
   end	
    
