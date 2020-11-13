@@ -192,6 +192,17 @@ OBJC_EXPORT
  */
 - (void)updateRole:(NSString *)role;
 
+/**
+ 生成随机uuid
+ */
+- (NSString*) generateUUID;
+
+/**
+ 更新公共参数
+ */
+-(void) updatePublicParam:(NSString*)key value:(NSString*) value;
+
+
 /*******************************************************/
 
 @end
