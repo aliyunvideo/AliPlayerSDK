@@ -157,6 +157,27 @@ OBJC_EXPORT
  @brief format,default is nil, value is "mp4,mp3,flv,m3u8"
  */
 @property (nonatomic, copy) NSString* format;
+/**
+ @brief authTimeout
+ */
+@property (nonatomic, assign) long authTimeout;
+/**
+ @brief resultType
+ */
+@property (nonatomic, copy) NSString* resultType;
+/**
+ @brief reAuthInfo
+ */
+@property (nonatomic, copy) NSString* reAuthInfo;
+/**
+ @brief streamType
+ */
+@property (nonatomic, copy) NSString* streamType;
+/**
+ @brief outputType
+ */
+@property (nonatomic, copy) NSString* outputType;
+
 
 @end
 
@@ -202,6 +223,26 @@ OBJC_EXPORT
  @brief format,default is nil, value is "mp4,mp3,flv,m3u8"
  */
 @property (nonatomic, copy) NSString* format;
+/**
+ @brief authTimeout
+ */
+@property (nonatomic, assign) long authTimeout;
+/**
+ @brief resultType
+ */
+@property (nonatomic, copy) NSString* resultType;
+/**
+ @brief reAuthInfo
+ */
+@property (nonatomic, copy) NSString* reAuthInfo;
+/**
+ @brief streamType
+ */
+@property (nonatomic, copy) NSString* streamType;
+/**
+ @brief outputType
+ */
+@property (nonatomic, copy) NSString* outputType;
 
 @end
 
