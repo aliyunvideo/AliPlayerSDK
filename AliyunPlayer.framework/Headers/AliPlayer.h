@@ -368,6 +368,20 @@ OBJC_EXPORT
 -(void) selectExtSubtitle:(int)trackIndex enable:(BOOL)enable;
 
 /**
+ * 设置某路流相对于主时钟的延时时间，默认是0, 目前只支持外挂字幕
+ * @param index 流的索引
+ * @param time  延时，单位毫秒
+ */
+/****
+ * set the delay time of the stream
+ * @param index steam index
+ * @param time  ms
+ */
+
+- (void)setStreamDelayTime:(int)index time:(int)time;
+
+
+/**
  @brief 重新加载。比如网络超时时，可以重新加载。
  */
 /****
@@ -473,6 +487,14 @@ OBJC_EXPORT
  @brief Query the SDK version.
  */
 + (NSString*) getSDKVersion;
+
+/**
+ @brief 获取设备UUID
+ */
+/****
+ @brief Query device UUID.
+ */
++ (NSString *)getDeviceUUID;
 
 /**
  @brief 初始化播放器组件。这些组件是可裁剪的。App可删除相应动态库，去掉初始化组件代码，实现裁剪。
@@ -634,6 +656,8 @@ OBJC_EXPORT
  */
 @property (nonatomic, weak) id <CicadaRenderDelegate> renderDelegate;
 
+@property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
+
 /**
  @brief 设置AudioSession的Delegate
  @param delegate Delegate对象
@@ -669,5 +693,28 @@ OBJC_EXPORT
 +(void) setLogCallbackInfo:(AVPLogLevel)logLevel callbackBlock:(void (^)(AVPLogLevel logLevel,NSString* strLog))block;
 
 -(void) setVerifyStsCallback:(AVPStsStatus (^)(AVPStsInfo info)) callback;
+/**
+ @brief 设置期望使用的播放器名字。
+ @param name 期望使用的播放器名字
+ */
+/****
+ @brief Set preper player name.
+ @param name preper player name.
+ */
+- (void)setPreferPlayerName:(NSString *)name;
+/**
+ @brief 获取播放时使用的播放器名字
+ */
+/****
+ @brief Get used player name
+ */
+- (NSString *)getPlayerName;
+/**
+ @brief 发送用户自定义事件，将通过AVPEventReportParamsDelegate回调。事件 e = 5001。
+ */
+/****
+ @brief Send custom event, will callback through AVPEventReportParamsDelegate. Event id e = 5001.
+ */
+- (void)sendCustomEvent:(NSString *)args;
 
 @end

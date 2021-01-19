@@ -129,6 +129,14 @@
 - (void)onTrackReady:(AliPlayer*)player info:(NSArray<AVPTrackInfo*>*)info;
 
 /**
+ @brief 选择希望播放的流
+ @param player 播放器player指针
+ @param info track流信息数组
+ @see AVPTrackInfo
+ */
+- (int)onChooseTrackIndex:(AliPlayer *)player info:(NSArray<AVPTrackInfo *> *)info;
+
+/**
  @brief track切换完成回调
  @param player 播放器player指针
  @param info 切换后的信息 参考AVPTrackInfo

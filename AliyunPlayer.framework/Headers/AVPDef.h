@@ -28,9 +28,9 @@
  *
  * For vid playback, try to convert the playback URL before playback
  *
- * @param   inputURL  [in]  input URL.
+ * @param   srcURL  [in]  input URL.
  * @param   srcFormat [in]  input format. should be "m3u8" "mp4", or "" if unknown.
- * @param   outputURL [out] output URL, convertURL function will malloc the memory, and user of PlayURLConverCallback need free it outside.
+ * @param   destURL [out] output URL, convertURL function will malloc the memory, and user of PlayURLConverCallback need free it outside.
  *
  * @return  true if success.
  */
