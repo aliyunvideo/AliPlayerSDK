@@ -709,6 +709,15 @@ OBJC_EXPORT
  @brief Get used player name
  */
 - (NSString *)getPlayerName;
+
+/**
+ @brief 设置视频标签。值范围[0,99]。
+ */
+/****
+ @brief Set the video tags. Values range from [0,99].
+ */
+- (void)setVideoTag:(int *)tags size:(int)size;
+
 /**
  @brief 发送用户自定义事件，将通过AVPEventReportParamsDelegate回调。事件 e = 5001。
  */
