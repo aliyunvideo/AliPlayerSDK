@@ -15,6 +15,7 @@
 #import "AVPCacheConfig.h"
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
+@protocol CicadaRenderingDelegate;
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -654,9 +655,12 @@ OBJC_EXPORT
 /**
  * 设置渲染回调。
  */
-@property (nonatomic, weak) id <CicadaRenderDelegate> renderDelegate;
+@property(nonatomic, weak) id<CicadaRenderDelegate> renderDelegate __deprecated;
+
+@property(nonatomic, weak) id<CicadaRenderingDelegate> renderingDelegate;
 
 @property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
+
 
 /**
  @brief 设置AudioSession的Delegate
