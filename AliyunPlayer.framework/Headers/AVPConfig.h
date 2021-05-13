@@ -148,6 +148,14 @@ OBJC_EXPORT
  */
 @property(nonatomic, assign) int positionTimerIntervalMs;
 
+/**
+ @brief 设置播放器后向buffer的最大值.
+ */
+/****
+ @brief set the maximum backward buffer duration of the player.
+ */
+@property(nonatomic, assign) uint64_t mMAXBackwardDuration;
+
 @end
 
 #endif /* AVPConfig_h */

@@ -11,6 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef int (^BitStreamReadCallbackBlock)(uint8_t *buffer, int size);
+
+typedef long (^BitStreamSeekCallbackBlock)(long offset, int whence);
+
+static const int SEEK_SIZE = 0x10000;
+
 OBJC_EXPORT
 @interface AVPSource : NSObject
 
@@ -82,6 +88,17 @@ OBJC_EXPORT
 @property (nonatomic, copy) NSString* cacheFile;
 
 @end
+
+
+OBJC_EXPORT
+@interface AVPBitStreamSource : AVPSource
+
+@property(nonatomic, copy) BitStreamReadCallbackBlock mBitStreamReadCallbackBlock;
+
+@property(nonatomic, copy) BitStreamSeekCallbackBlock mBitStreamSeekCallbackBlock;
+
+@end
+
 
 OBJC_EXPORT
 @interface AVPVidStsSource : AVPSource

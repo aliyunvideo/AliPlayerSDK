@@ -15,7 +15,6 @@
 #import "AVPCacheConfig.h"
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
-@protocol CicadaRenderingDelegate;
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -49,6 +48,18 @@ OBJC_EXPORT
  @see AVPUrlSource
  */
 - (void)setUrlSource:(AVPUrlSource*)source;
+
+/**
+ @brief 使用bitstream方式来播放视频
+ @param source AVPBitStreamSource的输入类型
+ @see AVPBitStreamSource
+ */
+/****
+ @brief Play by bit stream.
+ @param source AVPBitStreamSource type.
+ @see AVPBitStreamSource
+ */
+- (void)setBitStreamSource:(AVPBitStreamSource *)source;
 
 /**
  @brief 用vid和sts来播放视频，sts可参考：https://help.aliyun.com/document_detail/28756.html?spm=a2c4g.11186623.4.4.6f554c07q7B7aS
@@ -655,12 +666,9 @@ OBJC_EXPORT
 /**
  * 设置渲染回调。
  */
-@property(nonatomic, weak) id<CicadaRenderDelegate> renderDelegate __deprecated;
-
-@property(nonatomic, weak) id<CicadaRenderingDelegate> renderingDelegate;
+@property (nonatomic, weak) id <CicadaRenderDelegate> renderDelegate;
 
 @property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
-
 
 /**
  @brief 设置AudioSession的Delegate
