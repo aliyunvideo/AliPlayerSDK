@@ -155,6 +155,14 @@ OBJC_EXPORT
 @property (nonatomic, assign) int64_t duration;
 
 /**
+ @brief 文件码率(vod 和多码率时值为0，应该使用AVPTrackInfo中的trackBitrate)
+ */
+/****
+ @brief Retrievable bit rate (VOD and multi-bit rate values are 0; Should use trackBitrate in AVPTrackInfo)
+ */
+@property(nonatomic, assign) int64_t totalBitrate;
+
+/**
  @brief media transcodeMode
  *转码类型，取值：FastTranscode（上传完成即转码，且转码完成才能播放），NoTranscode（上传完成不转码，且立即能播放），默认取值FastTranscode
  */

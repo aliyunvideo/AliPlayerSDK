@@ -29,3 +29,4 @@
 #import <AliyunPlayer/AliPlayerGlobalSettings.h>
 #import <AliyunPlayer/CicadaAudioSessionDelegate.h>
 #import <AliyunPlayer/CicadaRenderDelegate.h>
+#import <AliyunPlayer/CicadaRenderingDelegate.h>

@@ -114,6 +114,20 @@
  */
 - (void)onLoadingProgress:(AliPlayer*)player progress:(float)progress;
 
+
+/**
+ @brief 当前下载速度回调
+ @param player 播放器player指针
+ @param speed bits per second
+ */
+/****
+ @brief current download speed callback.
+ @param player Player pointer.
+ @param speed bits per second.
+ */
+
+- (void)onCurrentDownloadSpeed:(AliPlayer *)player speed:(int64_t)speed;
+
 /**
  @brief 获取track信息回调
  @param player 播放器player指针

@@ -15,6 +15,7 @@
 #import "AVPCacheConfig.h"
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
+@protocol CicadaRenderingDelegate;
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -645,6 +646,15 @@ OBJC_EXPORT
  */
 @property (nonatomic, readonly) int64_t currentPosition;
 
+
+/**
+ @brief 获取当前下载速度，支持KVO
+ */
+/****
+ @brief Query the current download speed. KVO is supported.
+ */
+@property(nonatomic, readonly) int64_t currentDownloadSpeed;
+
 /**
  @brief 获取已经缓存的位置，支持KVO
  */
@@ -666,9 +676,12 @@ OBJC_EXPORT
 /**
  * 设置渲染回调。
  */
-@property (nonatomic, weak) id <CicadaRenderDelegate> renderDelegate;
+@property(nonatomic, weak) id<CicadaRenderDelegate> renderDelegate __deprecated;
+
+@property(nonatomic, weak) id<CicadaRenderingDelegate> renderingDelegate;
 
 @property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
+
 
 /**
  @brief 设置AudioSession的Delegate
@@ -737,5 +750,15 @@ OBJC_EXPORT
  @brief Send custom event, will callback through AVPEventReportParamsDelegate. Event id e = 5001.
  */
 - (void)sendCustomEvent:(NSString *)args;
+
+
+/**
+ @brief 重连所有网络连接，网络路由发生变化后，调用此接口，可以让播放器所有的连接切换到新的路由上去。
+ */
+/****
+ @brief reconnect all connections, call this when netWork router changed, and the player will use new router.
+ */
+
++ (void)netWorkReConnect;
 
 @end
