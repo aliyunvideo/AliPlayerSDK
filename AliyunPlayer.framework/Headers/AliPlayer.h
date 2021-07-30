@@ -132,7 +132,15 @@ OBJC_EXPORT
 /****
  @brief Refresh the view in certain situations, for example, when the size of the view changes.
  */
--(void)redraw;
+- (void)redraw DEPRECATED_MSG_ATTRIBUTE("will not take effect");
+
+/**
+ @brief 清空画面。
+ */
+/****
+ @brief Clear screen.
+ */
+- (void)clearScreen;
 
 /**
  @brief 重置播放
@@ -645,6 +653,14 @@ OBJC_EXPORT
  @brief Query the current playback position. KVO is supported.
  */
 @property (nonatomic, readonly) int64_t currentPosition;
+
+/**
+@brief 获取当前播放位置的utc时间，支持KVO
+*/
+/****
+@brief Query the current playback utc time. KVO is supported.
+*/
+@property(nonatomic, readonly) int64_t currentUtcTime;
 
 
 /**

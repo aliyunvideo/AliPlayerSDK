@@ -53,7 +53,7 @@ OBJC_EXPORT
 /**
  @brief vod file size, only meaningful if the trackType is AVPTRACK_TYPE_SAAS_VOD
  */
-@property (nonatomic, assign) int vodFileSize;
+@property (nonatomic, assign) int64_t vodFileSize;
 
 /**
  @brief vod play URL, only meaningful if the trackType is AVPTRACK_TYPE_SAAS_VOD

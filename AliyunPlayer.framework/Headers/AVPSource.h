@@ -89,6 +89,8 @@ OBJC_EXPORT
  */
 @property (nonatomic, copy) NSString* cacheFile;
 
+@property(nonatomic) uint64_t originSize;
+
 @end
 
 
