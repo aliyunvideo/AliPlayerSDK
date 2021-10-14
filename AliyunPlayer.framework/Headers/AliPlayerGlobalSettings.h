@@ -73,4 +73,6 @@ OBJC_EXPORT
 
 + (void)forceAudioRendingFormat:(bool)force fmt:(NSString *)fmt channels:(int)channels sample_rate:(int)sample_rate;
 
++ (void)enableLocalCache:(bool)enable maxBufferMemoryKB:(int)maxBufferMemoryKB localCacheDir:(NSString *)localCacheDir;
+
 @end
