@@ -156,15 +156,6 @@ OBJC_EXPORT
  */
 @property(nonatomic, assign) uint64_t mMAXBackwardDuration;
 
-
-/**
- @brief 优先保证音频播放；在网络带宽不足的情况下，优先保障音频的播放，目前只在dash直播流中有效（视频已经切换到了最低码率）
- */
-/****
- @brief prefer audio playback; prefer audio playback when under insufficient network bandwidth. At present, it is only effective in dash live stream (the video has been switched to the lowest bit rate)
- */
-@property (nonatomic, assign) BOOL preferAudio;
-
 @end
 
 #endif /* AVPConfig_h */
