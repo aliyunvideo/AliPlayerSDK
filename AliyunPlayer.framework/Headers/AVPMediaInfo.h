@@ -53,7 +53,7 @@ OBJC_EXPORT
 /**
  @brief vod file size, only meaningful if the trackType is AVPTRACK_TYPE_SAAS_VOD
  */
-@property (nonatomic, assign) int64_t vodFileSize;
+@property (nonatomic, assign) int vodFileSize;
 
 /**
  @brief vod play URL, only meaningful if the trackType is AVPTRACK_TYPE_SAAS_VOD
@@ -153,14 +153,6 @@ OBJC_EXPORT
  * Unit: millisecond.
  */
 @property (nonatomic, assign) int64_t duration;
-
-/**
- @brief 文件码率(vod 和多码率时值为0，应该使用AVPTrackInfo中的trackBitrate)
- */
-/****
- @brief Retrievable bit rate (VOD and multi-bit rate values are 0; Should use trackBitrate in AVPTrackInfo)
- */
-@property(nonatomic, assign) int64_t totalBitrate;
 
 /**
  @brief media transcodeMode
