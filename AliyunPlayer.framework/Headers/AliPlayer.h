@@ -51,6 +51,18 @@ OBJC_EXPORT
 - (void)setUrlSource:(AVPUrlSource*)source;
 
 /**
+ @brief 使用bitstream方式来播放视频
+ @param source AVPBitStreamSource的输入类型
+ @see AVPBitStreamSource
+ */
+/****
+ @brief Play by bit stream.
+ @param source AVPBitStreamSource type.
+ @see AVPBitStreamSource
+ */
+- (void)setBitStreamSource:(AVPBitStreamSource *)source;
+
+/**
  @brief 用vid和sts来播放视频，sts可参考：https://help.aliyun.com/document_detail/28756.html?spm=a2c4g.11186623.4.4.6f554c07q7B7aS
  @param source AVPVidStsSource的输入类型
  @see AVPVidStsSource
@@ -120,15 +132,15 @@ OBJC_EXPORT
 /****
  @brief Refresh the view in certain situations, for example, when the size of the view changes.
  */
--(void)redraw;
+- (void)redraw DEPRECATED_MSG_ATTRIBUTE("will not take effect");
 
 /**
  @brief 清空画面。
  */
 /****
- @brief Clear the screen.
+ @brief Clear screen.
  */
--(void)clearScreen;
+- (void)clearScreen;
 
 /**
  @brief 重置播放
@@ -643,6 +655,23 @@ OBJC_EXPORT
 @property (nonatomic, readonly) int64_t currentPosition;
 
 /**
+@brief 获取当前播放位置的utc时间，支持KVO
+*/
+/****
+@brief Query the current playback utc time. KVO is supported.
+*/
+@property(nonatomic, readonly) int64_t currentUtcTime;
+
+
+/**
+ @brief 获取当前下载速度，支持KVO
+ */
+/****
+ @brief Query the current download speed. KVO is supported.
+ */
+@property(nonatomic, readonly) int64_t currentDownloadSpeed;
+
+/**
  @brief 获取已经缓存的位置，支持KVO
  */
 /****
@@ -737,5 +766,15 @@ OBJC_EXPORT
  @brief Send custom event, will callback through AVPEventReportParamsDelegate. Event id e = 5001.
  */
 - (void)sendCustomEvent:(NSString *)args;
+
+
+/**
+ @brief 重连所有网络连接，网络路由发生变化后，调用此接口，可以让播放器所有的连接切换到新的路由上去。
+ */
+/****
+ @brief reconnect all connections, call this when netWork router changed, and the player will use new router.
+ */
+
++ (void)netWorkReConnect;
 
 @end
