@@ -6,8 +6,8 @@
 //  Copyright © 2020 com.alibaba.AliyunPlayer. All rights reserved.
 //
 
-#import "AVPDef.h"
 #import <Foundation/Foundation.h>
+#import "AVPDef.h"
 
 OBJC_EXPORT
 @interface AliPlayerGlobalSettings : NSObject
@@ -34,7 +34,6 @@ OBJC_EXPORT
  */
 +(void)setIpResolveType:(AVPIpResolveType)type;
 
-+ (void)setUseHttp2:(bool)use;
 
 /**
  @brief 设置fairPlay的用户证书id, 每次设置必须在同一个线程，否则无法更新
@@ -73,13 +72,5 @@ OBJC_EXPORT
  */
 
 + (void)forceAudioRendingFormat:(bool)force fmt:(NSString *)fmt channels:(int)channels sample_rate:(int)sample_rate;
-
-+ (void)enableLocalCache:(bool)enable maxBufferMemoryKB:(int)maxBufferMemoryKB localCacheDir:(NSString *)localCacheDir;
-
-+ (void)setCacheFileClearConfig:(int64_t)expireMin maxCapacityMB:(int64_t)maxCapacityMB freeStorageMB:(int64_t)freeStorageMB;
-
-typedef NSString *(*CaheUrlHashCallback)(NSString *url);
-
-+ (void)setCacheUrlHashCallback:(CaheUrlHashCallback)callback;
 
 @end
