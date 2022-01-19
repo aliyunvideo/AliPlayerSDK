@@ -6,20 +6,16 @@
 //  Copyright © 2018 com.alibaba.AliyunPlayer. All rights reserved.
 //
 
-#import "AVPCacheConfig.h"
-#import "AVPConfig.h"
-#import "AVPDef.h"
-#import "AVPDelegate.h"
-#import "AVPFilterConfig.h"
-#import "AVPMediaInfo.h"
-#import "AVPSource.h"
 #import <Foundation/Foundation.h>
-
+#import "AVPDelegate.h"
+#import "AVPSource.h"
+#import "AVPDef.h"
+#import "AVPMediaInfo.h"
+#import "AVPConfig.h"
+#import "AVPCacheConfig.h"
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
 @protocol CicadaRenderingDelegate;
-@class AVPFilterConfig;
-@class AVPFilterOptions;
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -317,12 +313,6 @@ OBJC_EXPORT
  @return If the cache configuration is modified, YES is returned.
  */
 -(BOOL) setCacheConfig:(AVPCacheConfig *)cacheConfig;
-
-- (void)setFilterConfig:(AVPFilterConfig *)filterConfig;
-
-- (void)updateFilterConfig:(NSString *)target options:(AVPFilterOptions *)options;
-
-- (void)setFilterInvalid:(NSString *)target invalid:(BOOL)invalid;
 
 /**
  @brief 根据url获取缓存的文件名。如果有自定义的规则，请实现delegate {@link onGetCacheNameByURL}。
