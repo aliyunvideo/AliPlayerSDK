@@ -222,45 +222,6 @@ typedef enum AVPErrorCode: NSUInteger {
     /**@brief 私有加密解封装未实现。*/
     /****@brief  Transcoded streams encrypted by Alibaba Cloud video encryption cannot be decapsulated.*/
     ERROR_TBDRM_DEMUXER_UNIMPLEMENTED                         = 0x20012001,
-
-    //------------------     ARTP  begin ------------------------
-    /**@brief Artp未知错误。*/
-    /****@brief  An unknown Artp error has occurred.*/
-    ERROR_ARTP_UNKNOWN                                        = 0x20013000,
-    /**@brief Artp模块加载失败，请检查动态库。*/
-    /****@brief  Load Artp module failed.*/
-    ERROR_ARTP_DEMUXER_UNIMPLEMENTED                          = 0x20013001,
-    /**@brief Artp播放加载失败。*/
-    /****@brief  Artp playback load failed.*/
-    ERROR_ARTP_LOAD_FAILED                                    = 0x20013002,
-    /**@brief Artp流地址非法。*/
-    /****@brief  Artp streaming address illegal.*/
-    ERROR_ARTP_STREAM_ILLEGAL                                 = 0x20013003,
-    /**@deprecated。*/
-    ERROR_ARTP_STREAM_FORBIDDEN                               = 0x20013004,
-    /**@brief Artp流不存在。*/
-    /****@brief  Artp streaming not found.*/
-    ERROR_ARTP_STREAM_NOT_FOUND                               = 0x20013005,
-    /**@brief Artp流已经断了。*/
-    /****@brief  Artp streaming stopped.*/
-    ERROR_ARTP_STREAM_STOPPED                                 = 0x20013006,
-    /**@brief Artp起播超时。*/
-    /****@brief  Artp play timeout.*/
-    ERROR_ARTP_PLAY_TIMEOUT                                   = 0x20013007,
-    /**@brief Artp SPS/PPS或AAC Conf接收超时。*/
-    /****@brief  Artp receive SPS/PPS or AAC Conf timeout.*/
-    ERROR_ARTP_SPSPPS_AACCONF_TIMEOUT                         = 0x20013008,
-    /**@brief Artp SPS/PPS或AAC Conf接收超时。*/
-    /****@brief  Artp receive SPS/PPS or AAC Conf timeout.*/
-    ERROR_ARTP_ARTP_MEDIA_INFO_TIMEOUT                        = ERROR_ARTP_SPSPPS_AACCONF_TIMEOUT,
-    /**@brief Artp接收音视频数据包超时。*/
-    /****@brief  Artp receive packet timeout.*/
-    ERROR_ARTP_PACKET_RECV_TIMEOUT                            = 0x20013009,
-    /**@brief Artp数据包连同性探测失败。*/
-    /****@brief  Artp probe failed.*/
-    ERROR_ARTP_MEDIA_PROBE_FAILED                             = 0x2001300A,
-
-
     //------------------     UNKNOWN  begin ------------------------
     /**@brief 未知错误。*/
     /****@brief  An unknown error has occurred.*/

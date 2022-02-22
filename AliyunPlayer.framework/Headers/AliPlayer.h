@@ -6,16 +6,21 @@
 //  Copyright © 2018 com.alibaba.AliyunPlayer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "AVPDelegate.h"
-#import "AVPSource.h"
-#import "AVPDef.h"
-#import "AVPMediaInfo.h"
-#import "AVPConfig.h"
 #import "AVPCacheConfig.h"
+#import "AVPConfig.h"
+#import "AVPDef.h"
+#import "AVPDelegate.h"
+#import "AVPFilterConfig.h"
+#import "AVPMediaInfo.h"
+#import "AVPSource.h"
+#import <Foundation/Foundation.h>
+
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
 @protocol CicadaRenderingDelegate;
+@class AVPFilterConfig;
+@class AVPFilterOptions;
+
 
 OBJC_EXPORT
 @interface AliPlayer : NSObject
@@ -37,6 +42,8 @@ OBJC_EXPORT
  @param traceID A trace ID for debugging. Set as "DisableAnalytics" to disable report analytics data to server(not recommended).
  */
 - (instancetype)init:(NSString*)traceID;
+
+- (void *)getPlayer;
 
 /**
  @brief 使用url方式来播放视频
@@ -98,8 +105,22 @@ OBJC_EXPORT
  */
 - (void)setAuthSource:(AVPVidAuthSource*)source;
 
+/**
+ @brief 使用LiveSts 方式播放直播流
+ @param source  AVPLiveStsSource的输入类型
+ */
+/****
+@brief Play by 使用LiveSts.
+@param source AVPLiveStsSource type.
+*/
 - (void)setLiveStsSource:(AVPLiveStsSource*)source;
 
+/**
+ @brief 更新LiveSts信息
+ */
+/****
+ @brief  update liveSts info.
+*/
 - (void)updateLiveStsInfo:(NSString*)accId accKey:(NSString*)accKey token:(NSString*)token region:(NSString*)region;
 
 /**
@@ -148,7 +169,7 @@ OBJC_EXPORT
 /****
  @brief Reset.
  */
--(void)reset;
+-(void)reset DEPRECATED_ATTRIBUTE;
 
 /**
  @brief 停止播放
@@ -313,6 +334,39 @@ OBJC_EXPORT
  @return If the cache configuration is modified, YES is returned.
  */
 -(BOOL) setCacheConfig:(AVPCacheConfig *)cacheConfig;
+
+/**
+ @brief  设置滤镜配置。在prepare之前调用此方法。如果想更新，调用updateFilterConfig()
+ @param filterConfig
+ */
+/****
+ @brief Set filter config. call this before prepare. If want update filter config, call updateFilterConfig()
+ @param filterConfig
+ */
+- (void)setFilterConfig:(AVPFilterConfig *)filterConfig;
+
+/**
+ @brief更新滤镜配置
+ @param target
+ @param options
+ */
+/****
+ @brief upadate filter config.
+ @param target
+ @param options
+ */
+- (void)updateFilterConfig:(NSString *)target options:(AVPFilterOptions *)options;
+/**
+ @brief 开启关闭滤镜.
+ @param target  如果为空，则对所有滤镜生效
+ @param invalid  true: 开启; false: 关闭
+ */
+/****
+ @brief disable/enable filter.
+ @param target  if empty , disable all filters.
+ @param invalid  true: enable(default); false: disable
+ */
+- (void)setFilterInvalid:(NSString *)target invalid:(BOOL)invalid;
 
 /**
  @brief 根据url获取缓存的文件名。如果有自定义的规则，请实现delegate {@link onGetCacheNameByURL}。
@@ -664,6 +718,14 @@ OBJC_EXPORT
 
 
 /**
+@brief 获取当前播放命中的缓存文件大小，支持KVO
+*/
+/****
+@brief Query the current playback cached file size. KVO is supported.
+*/
+@property(nonatomic, readonly) int64_t localCacheLoadedSize;
+
+/**
  @brief 获取当前下载速度，支持KVO
  */
 /****
@@ -690,12 +752,26 @@ OBJC_EXPORT
 @property (nonatomic, weak) id<AVPDelegate> delegate;
 
 /**
- * 设置渲染回调。
+ @brief 设置渲染回调。废弃，使用renderingDelegate。
  */
+/****
+ @brief Set the render callback. Deprecated, use the renderingDelegate.
+*/
 @property(nonatomic, weak) id<CicadaRenderDelegate> renderDelegate __deprecated;
 
+/**
+ @brief 设置渲染回调。
+ */
+/****
+ @brief Set the render callback.
+*/
 @property(nonatomic, weak) id<CicadaRenderingDelegate> renderingDelegate;
-
+/**
+ @brief 设置埋点事件回调。
+ */
+/****
+ @brief Set the event report callback.
+*/
 @property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
 
 
@@ -704,8 +780,8 @@ OBJC_EXPORT
  @param delegate Delegate对象
  */
 /****
- @brief 设置AudioSession的Delegate
- @param delegate Delegate对象
+ @brief Set AudioSession Delegate
+ @param delegate the Delegate
  */
 + (void)setAudioSessionDelegate:(id<CicadaAudioSessionDelegate>)delegate;
 
@@ -733,6 +809,14 @@ OBJC_EXPORT
  */
 +(void) setLogCallbackInfo:(AVPLogLevel)logLevel callbackBlock:(void (^)(AVPLogLevel logLevel,NSString* strLog))block;
 
+/**
+ @brief 设置校验AVPStsInfo是否过期回调
+ @param callback
+ */
+/****
+ @brief Set the AVPStsInfo expiration callback
+ @param callback
+*/
 -(void) setVerifyStsCallback:(AVPStsStatus (^)(AVPStsInfo info)) callback;
 /**
  @brief 设置期望使用的播放器名字。

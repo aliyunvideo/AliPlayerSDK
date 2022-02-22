@@ -31,5 +31,18 @@ OBJC_EXPORT
  */
 + (void)initKeyWithData:(NSData*)data;
 
+/**
+ @brief  初始化证书服务
+ @param key 用户拥有的licenseKey信息
+ @param licensePath 本地证书路径
+ @param storageDir  下载证书文件夹路径
+ */
+/****
+ @brief Initialize the license service.
+ @param key license key that user have
+ @param licensePath local license file path
+ @param storageDir  download license file folder path
+ */
++ (void)initLicenseService:(NSString *)key licensePath:(NSString *)licensePath storageDir:(NSString *)storageDir;
 @end
 
