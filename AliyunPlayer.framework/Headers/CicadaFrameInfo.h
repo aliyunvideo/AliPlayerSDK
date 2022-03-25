@@ -117,6 +117,10 @@ OBJC_EXPORT
 @property(nonatomic, assign) uint8_t ** video_data_addr;
 @property(nonatomic, assign) CVPixelBufferRef video_pixelBuffer;
 
+@property(nonatomic, assign) int sei_type;
+@property(nonatomic, assign) char *sei_data;
+@property(nonatomic, assign) int sei_data_size;
+
 @end
 
 
