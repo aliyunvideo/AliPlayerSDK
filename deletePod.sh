@@ -10,3 +10,5 @@ fi
 pod trunk delete AliPlayerPartSDK_iOS ${targetVersion}
 pod trunk delete AliPlayerSDK_iOS ${targetVersion}
 pod trunk delete AliPlayerSDK_iOS_ARTC ${targetVersion}
+pod trunk delete AliPlayerSDK_iOS_MPF_FILTER ${targetVersion}
+pod trunk delete AliPlayerSDK_iOS_VFI_FILTER ${targetVersion}
