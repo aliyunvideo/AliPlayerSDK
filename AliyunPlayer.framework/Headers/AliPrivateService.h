@@ -43,6 +43,6 @@ OBJC_EXPORT
  @param licensePath local license file path
  @param storageDir  download license file folder path
  */
-+ (void)initLicenseService:(NSString *)key licensePath:(NSString *)licensePath storageDir:(NSString *)storageDir;
++ (void)initLicenseService;
 @end
 
