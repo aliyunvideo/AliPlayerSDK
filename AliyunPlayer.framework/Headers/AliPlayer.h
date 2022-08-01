@@ -18,6 +18,8 @@
 @protocol CicadaAudioSessionDelegate;
 @protocol CicadaRenderDelegate;
 @protocol CicadaRenderingDelegate;
+@protocol AliPlayerPictureInPictureDelegate;
+
 @class AVPFilterConfig;
 @class AVPFilterOptions;
 
@@ -774,6 +776,13 @@ OBJC_EXPORT
 */
 @property (nonatomic, weak) id <AVPEventReportParamsDelegate> eventReportParamsDelegate;
 
+/**
+ @brief 设置画中画的回调。
+ */
+/**
+ @brief Set the picture in picture callback.
+*/
+@property (nonatomic, weak) id<AliPlayerPictureInPictureDelegate> pictureInPictureDelegate;
 
 /**
  @brief 设置AudioSession的Delegate
@@ -860,5 +869,13 @@ OBJC_EXPORT
  */
 
 + (void)netWorkReConnect;
+
+/**
+ @brief 设置画中画功能开启/关闭    (目前播放器自带的画中画功能需要iOS15以上的系统，如果其他系统，可以通过播放器CicadaRenderingDelegate返回的pixelbuffer来自定义实现)
+ */
+/**
+ @brief Set picture in picture enable  (The picture in picture function of the player requires systems above ios15. If other systems are available, they can be customized through the pixelbuffer returned by the player cicadarenderingdelegate)
+ */
+//- (void)setPictureInPictureEnable:(BOOL)enable;
 
 @end
