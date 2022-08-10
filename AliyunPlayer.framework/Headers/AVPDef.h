@@ -163,7 +163,7 @@ typedef enum AVPIpResolveType: NSUInteger {
     AVPIpResolveV6,
 } AVPIpResolveType;
 
-typedef enum AVPOption : NSUInteger {
+typedef enum AVPOption: NSUInteger {
     /**
      * @brief 渲染的fps。类型为Float
      */
@@ -171,30 +171,6 @@ typedef enum AVPOption : NSUInteger {
      * @brief render fps. Return value type is Float
      */
     AVP_OPTION_RENDER_FPS = 0,
-
-    /**
-     * 当前的网络下行码率。类型为Float
-     */
-    /****
-     * current download bitrate. Return value type is Float
-     */
-    AVP_OPTION_DOWNLOAD_BITRATE = 1,
-
-    /**
-     * 当前播放的视频码率。类型为Float
-     */
-    /****
-     * current playback video bitrate. Return value type is Float
-     */
-    AVP_OPTION_VIDEO_BITRATE = 2,
-
-    /**
-     * 当前播放的音频码率。类型为Float
-     */
-    /****
-     * current playback audio bitrate. Return value type is Float
-     */
-    AVP_OPTION_AUDIO_BITRATE = 3,
 } AVPOption;
 
 /**
