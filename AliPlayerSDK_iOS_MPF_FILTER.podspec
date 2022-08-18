@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AliPlayerSDK_iOS_MPF_FILTER"
-  s.version      = "5.4.6.0-25672137"
+  s.version      = "5.4.7.1"
   s.summary      = "AliPlayerSDK_iOS_mpf_filter."
   s.description  = <<-DESC
                    It's an SDK for aliyun video vodplay, which implement by Objective-C.
