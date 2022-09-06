@@ -563,7 +563,7 @@ OBJC_EXPORT
 /****
  @brief Query the SDK version.
  */
-+ (NSString*) getSDKVersion;
++ (NSString *)getSDKVersion;
 
 /**
  @brief 获取设备UUID
@@ -574,12 +574,22 @@ OBJC_EXPORT
 + (NSString *)getDeviceUUID;
 
 /**
+ @brief 返回某项功能是否支持
+ @param type 是否支持的功能的类型。 参考SupportFeatureType。
+ */
+/****
+ @brief judge whether support the type of feature.
+ @param type The type of the support feature. See SupportFeatureType.
+ */
++ (BOOL)isFeatureSupport:(SupportFeatureType)type;
+
+/**
  @brief 初始化播放器组件。这些组件是可裁剪的。App可删除相应动态库，去掉初始化组件代码，实现裁剪。
  */
 /****
  @brief Initialize player components. These components are optional. You can remove these components by deleting the dynamic libraries and code of the components on your app.
  */
-+ (void) initPlayerComponent:(NSString *)functionName function:(void*)function;
++ (void)initPlayerComponent:(NSString *)functionName function:(void *)function;
 
 /**
  @brief 设置是否静音，支持KVO
@@ -876,6 +886,6 @@ OBJC_EXPORT
 /**
  @brief Set picture in picture enable  (The picture in picture function of the player requires systems above ios15. If other systems are available, they can be customized through the pixelbuffer returned by the player cicadarenderingdelegate)
  */
-//- (void)setPictureInPictureEnable:(BOOL)enable;
+- (void)setPictureInPictureEnable:(BOOL)enable;
 
 @end

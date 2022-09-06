@@ -291,16 +291,31 @@ typedef enum AVPLogLevel: NSUInteger {
 typedef enum _AVPStsStatus {
   Valid,
   Invalid,
-  Pending
-} AVPStsStatus;
+  Pending } AVPStsStatus;
 
 typedef struct _AVPStsInfo {
-  NSString* accId;
-  NSString* accSecret;
-  NSString* token;
-  NSString* region;
-  NSString* formats;
+    NSString *accId;
+    NSString *accSecret;
+    NSString *token;
+    NSString *region;
+    NSString *formats;
 } AVPStsInfo;
+
+/**
+ @brief 是否支持的功能的类型
+ */
+/****
+ @brief The type of the feature.
+*/
+typedef enum _SupportFeatureType : NSUInteger {
+    /**
+     * 硬件是否支持杜比音频
+    */
+    /****
+     * whether the device support Dolby Audio.
+    */
+    FeatureDolbyAudio
+} SupportFeatureType;
 
 
 #endif /* AVPDef_h */
