@@ -140,4 +140,7 @@ typedef NSString *(*CaheUrlHashCallback)(NSString *url);
  */
 + (void)enableHttpDns:(BOOL)enable;
 
+
++ (void) clearCaches;
+
 @end

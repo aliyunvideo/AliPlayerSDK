@@ -163,7 +163,7 @@ typedef enum AVPIpResolveType: NSUInteger {
     AVPIpResolveV6,
 } AVPIpResolveType;
 
-typedef enum AVPOption: NSUInteger {
+typedef enum AVPOption : NSUInteger {
     /**
      * @brief 渲染的fps。类型为Float
      */
@@ -171,6 +171,30 @@ typedef enum AVPOption: NSUInteger {
      * @brief render fps. Return value type is Float
      */
     AVP_OPTION_RENDER_FPS = 0,
+
+    /**
+     * 当前的网络下行码率。类型为Float
+     */
+    /****
+     * current download bitrate. Return value type is Float
+     */
+    AVP_OPTION_DOWNLOAD_BITRATE = 1,
+
+    /**
+     * 当前播放的视频码率。类型为Float
+     */
+    /****
+     * current playback video bitrate. Return value type is Float
+     */
+    AVP_OPTION_VIDEO_BITRATE = 2,
+
+    /**
+     * 当前播放的音频码率。类型为Float
+     */
+    /****
+     * current playback audio bitrate. Return value type is Float
+     */
+    AVP_OPTION_AUDIO_BITRATE = 3,
 } AVPOption;
 
 /**
@@ -267,16 +291,31 @@ typedef enum AVPLogLevel: NSUInteger {
 typedef enum _AVPStsStatus {
   Valid,
   Invalid,
-  Pending
-} AVPStsStatus;
+  Pending } AVPStsStatus;
 
 typedef struct _AVPStsInfo {
-  NSString* accId;
-  NSString* accSecret;
-  NSString* token;
-  NSString* region;
-  NSString* formats;
+    NSString *accId;
+    NSString *accSecret;
+    NSString *token;
+    NSString *region;
+    NSString *formats;
 } AVPStsInfo;
+
+/**
+ @brief 是否支持的功能的类型
+ */
+/****
+ @brief The type of the feature.
+*/
+typedef enum _SupportFeatureType : NSUInteger {
+    /**
+     * 硬件是否支持杜比音频
+    */
+    /****
+     * whether the device support Dolby Audio.
+    */
+    FeatureDolbyAudio
+} SupportFeatureType;
 
 
 #endif /* AVPDef_h */
