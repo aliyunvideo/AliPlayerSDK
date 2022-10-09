@@ -26,6 +26,7 @@
 #import <AliyunPlayer/AliListPlayer.h>
 #import <AliyunPlayer/AliMediaLoader.h>
 #import <AliyunPlayer/AliPlayer.h>
+//#import <AliyunPlayer/AliVRPlayer.h>
 #import <AliyunPlayer/AliPlayerGlobalSettings.h>
 #import <AliyunPlayer/AliPrivateService.h>
 #import <AliyunPlayer/AliVodMediaLoader.h>
