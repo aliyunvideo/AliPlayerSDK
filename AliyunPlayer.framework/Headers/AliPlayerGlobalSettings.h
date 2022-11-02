@@ -140,6 +140,15 @@ typedef NSString *(*CaheUrlHashCallback)(NSString *url);
  */
 + (void)enableHttpDns:(BOOL)enable;
 
+/**
+ @brief 是否开启内建预加载网络平衡策略，播放过程中，自动控制预加载的运行时机。默认开启。
+ @param enable
+ */
+/****
+ @brief enable Network Balance mechanism for control media loader's scheduling automatically. Default is enabled.
+ @param enable
+ */
++ (void)enableNetworkBalance:(BOOL)enable;
 
 + (void) clearCaches;
 
