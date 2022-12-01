@@ -150,6 +150,16 @@ typedef NSString *(*CaheUrlHashCallback)(NSString *url);
  */
 + (void)enableNetworkBalance:(BOOL)enable;
 
+/**
+ @brief 是否开启缓冲buffer到本地缓存，开启后，如果maxBufferDuration大于50s，则大于50s到部分会缓存到本地缓存。默认关闭。
+ @param enable
+ */
+/****
+ @brief enable buffer to local cache when maxBufferDuration large than 50s. Default is enabled.
+ @param enable
+ */
++ (void)enableBufferToLocalCache:(BOOL)enable;
+
 + (void) clearCaches;
 
 @end

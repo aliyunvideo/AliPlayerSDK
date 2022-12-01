@@ -16,3 +16,6 @@ pod trunk push AliPlayerSDK_iOS_MPF_FILTER.podspec
 
 pod spec lint AliPlayerSDK_iOS_VFI_FILTER.podspec --verbose
 pod trunk push AliPlayerSDK_iOS_VFI_FILTER.podspec
+
+pod spec lint AliPlayerSDK_iOS_AEM_FILTER.podspec --verbose
+pod trunk push AliPlayerSDK_iOS_AEM_FILTER.podspec

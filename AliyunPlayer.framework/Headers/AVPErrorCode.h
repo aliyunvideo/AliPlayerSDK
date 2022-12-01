@@ -288,6 +288,9 @@ typedef enum AVPErrorCode: NSUInteger {
     /**@brief 400错误。*/
     /****@brief  An HTTP 400 error has occurred.*/
     ERROR_NETWORK_HTTP_400                                    = 0x2005000A,
+    /**@brief 重定向到了一个不是媒体文件的URL。*/
+    /****@brief  Redirect to a url that is not a media.*/
+    ERROR_NETWORK_HTTP_REDIRECT_NONMEDIA                      = 0x2005000B,
 
 
     /**@brief 未知的解码错误。*/
